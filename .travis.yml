@@ -1,5 +1,7 @@
 language: python
-
+arch:
+  - amd64
+  - ppc64le
 python:
   - 2.7
   - 3.4
@@ -9,6 +11,15 @@ python:
   - 3.8
   - pypy
   - pypy3.5
+
+# Disable version 3.3, 3.2 & pypy
+jobs:
+  exclude:
+
+   - arch: ppc64le
+     python: pypy
+   - arch: ppc64le
+     python: pypy3.5
 
 services:
   - mongodb
